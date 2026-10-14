@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de velas de soja Génova.">
+
+    <title>Tienda de velas | Genova</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>GeNOVA VELAS DE SOJA</h1>
+    </header>
+
+    <main>
+        <input type="text" id="busqueda" placeholder="Buscar vela" aria-label="Buscar vela">
+
+        <ul id="contenedorProductos"></ul>
+
+        <form id="formAgregar">
+            <input type="text" id="nombre" placeholder="Nombre de la vela" required>
+
+            <input type="number" id="precio" placeholder="Precio" min="1" required>
+
+            <button type="submit">Agregar vela</button>
+        </form>
+
+        <div id="feedback" aria-live="polite"></div>
+
+        <button type="button" onclick="vaciarCarrito()">
+            Vaciar carrito
+        </button>
+
+        <button type="button" onclick="restablecerProductos()">
+            Restaurar productos iniciales
+        </button>
+    </main>
+</body>
+
+</html>
