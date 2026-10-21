@@ -1,44 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda de velas de soja Génova.">
+    <meta name="description" content="tienda online de velas de soja artesanales genova.">
 
-    <title>Tienda de velas | Genova</title>
+    <title>genova | velas de soja</title>
 
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>GeNOVA VELAS DE SOJA</h1>
+    <header class="encabezado">
+        <h1>Genova Velas de Soja</h1>
+        <p>velas de soja artesanales</p>
     </header>
 
-    <main>
-        <input type="text" id="busqueda" placeholder="Buscar vela" aria-label="Buscar vela">
+    <main class="contenedor-principal">
+        <section class="seccion-catalogo">
+            <h2>catalogo de productos</h2>
 
-        <ul id="contenedorProductos"></ul>
+            <input type="text" id="busqueda" placeholder="buscar una vela..." aria-label="buscar una vela">
 
-        <form id="formAgregar">
-            <input type="text" id="nombre" placeholder="Nombre de la vela" required>
+            <div id="catalogoProductos" class="catalogo"></div>
+        </section>
 
-            <input type="number" id="precio" placeholder="Precio" min="1" required>
+        <aside class="seccion-carrito">
+            <h2>
+                carrito
+                <span id="cantidadCarrito">(0)</span>
+            </h2>
 
-            <button type="submit">Agregar vela</button>
-        </form>
+            <ul id="carritoProductos" class="lista-carrito"></ul>
 
-        <div id="feedback" aria-live="polite"></div>
+            <p class="total">
+                total: <span id="total">$0</span>
+            </p>
 
-        <button type="button" onclick="vaciarCarrito()">
-            Vaciar carrito
-        </button>
+            <div class="acciones-carrito">
+                <button type="button" id="btnVaciar">
+                    vaciar carrito
+                </button>
 
-        <button type="button" onclick="restablecerProductos()">
-            Restaurar productos iniciales
-        </button>
+                <button type="button" id="btnFinalizar">
+                    finalizar compra
+                </button>
+            </div>
+
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+        </aside>
     </main>
 </body>
 

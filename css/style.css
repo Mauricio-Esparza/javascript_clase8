@@ -11,20 +11,32 @@ body {
   color: #4d3535;
 }
 
-header,
-main {
-  width: min(100%, 500px);
-  margin: 0 auto;
+.encabezado {
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  color: #6b4545;
 }
 
 h1 {
-  margin: 0 0 20px;
-  color: #6b4545;
-  text-align: center;
-  font-size: 1.8rem;
+  margin-bottom: 8px;
 }
 
-main {
+.contenedor-principal {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.seccion-catalogo,
+.seccion-carrito {
   padding: 24px;
   border: 2px solid #b58b8b;
   border-radius: 12px;
@@ -32,143 +44,135 @@ main {
   box-shadow: 0 8px 20px rgba(107, 69, 69, 0.18);
 }
 
-#contenedorProductos {
-  padding: 0;
-  margin: 18px 0;
-  list-style: none;
-}
-
-.producto {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0;
-  padding: 12px;
-  border-bottom: 1px solid #c9aaaa;
-  border-radius: 6px;
-  background-color: #f7eded;
-  cursor: grab;
-}
-
-.producto:last-child {
-  border-bottom: none;
-}
-
-.producto h3 {
-  width: 100%;
-  margin: 0;
-  color: #6b4545;
-  font-size: 1rem;
-}
-
-.producto p {
-  flex: 1;
-  margin: 0;
-  color: #805f5f;
-}
-
-.producto button {
-  padding: 6px 10px;
-  background-color: #a84c4c;
-  color: #fff;
-  font-size: 0.8rem;
-}
-
-.producto button:hover {
-  background-color: #7a2f2f;
-}
-
-form {
-  display: grid;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-input[type="text"],
-input[type="number"],
 #busqueda {
   width: 100%;
+  margin-bottom: 18px;
   padding: 10px;
   border: 1px solid #b58b8b;
   border-radius: 6px;
   background-color: #f7eded;
-  color: #4d3535;
-  font-size: 0.95rem;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  font-size: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-#busqueda:focus {
-  border-color: #8c5c5c;
-  outline: none;
-  box-shadow: 0 0 6px rgba(140, 92, 92, 0.4);
-  background-color: #fff;
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
-#feedback {
-  min-height: 24px;
-  margin-top: 14px;
-  font-weight: bold;
+.producto,
+.item-carrito {
+  padding: 14px;
+  border-radius: 8px;
+  background-color: #f7eded;
+}
+
+.producto h3,
+.producto p,
+.item-carrito p {
+  margin: 0 0 10px;
+}
+
+.controles-producto,
+.controles-carrito {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.controles-producto input {
+  width: 55px;
+  padding: 7px;
+  border: 1px solid #b58b8b;
+  border-radius: 5px;
 }
 
 button {
-  margin-top: 8px;
-  padding: 9px 14px;
+  padding: 8px 12px;
   border: none;
   border-radius: 6px;
+  background-color: #6c9c6c;
+  color: #fff;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.9rem;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-1px);
-}
-
-button[type="submit"] {
-  background-color: #6c9c6c;
-  color: #fff;
-}
-
-button[type="submit"]:hover {
   background-color: #4d7a4d;
 }
 
-button[onclick="vaciarCarrito()"] {
+.btn-eliminar,
+#btnVaciar {
   background-color: #a84c4c;
-  color: #fff;
 }
 
-button[onclick="vaciarCarrito()"]:hover {
+.btn-eliminar:hover,
+#btnVaciar:hover {
   background-color: #7a2f2f;
 }
 
-button[onclick="restablecerProductos()"] {
+#btnFinalizar {
   background-color: #d48b8b;
-  color: #fff;
 }
 
-button[onclick="restablecerProductos()"]:hover {
+#btnFinalizar:hover {
   background-color: #b56c6c;
 }
 
-@media (max-width: 480px) {
+.lista-carrito {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item-carrito {
+  margin-bottom: 10px;
+}
+
+.total {
+  padding-top: 15px;
+  border-top: 1px solid #b58b8b;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.acciones-carrito {
+  display: grid;
+  gap: 8px;
+}
+
+.feedback {
+  min-height: 24px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.feedback.exito {
+  color: #39713c;
+}
+
+.feedback.error {
+  color: #9b3636;
+}
+
+@media (max-width: 800px) {
+  .contenedor-principal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
   body {
     padding: 24px 14px;
   }
 
-  main {
+  .seccion-catalogo,
+  .seccion-carrito {
     padding: 18px;
   }
 
-  h1 {
-    font-size: 1.45rem;
+  .catalogo {
+    grid-template-columns: 1fr;
   }
 }
